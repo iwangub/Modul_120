@@ -19,22 +19,20 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			// Erstellen des Root-Nodes
-			BorderPane pane = new BorderPane();
+			BorderPane root = new BorderPane();
 
 			// Erzeugen einer Scene, Container und Fenstergrösse übergeben
-			Scene scene = new Scene(pane, 400, 400);
+			Scene scene = new Scene(root, 400, 400);
 
-			// Erzeugen der Labels
+			// Erzeugen der Nodes
 			Label lbl = new Label("Anrede");
-			pane.setTop(lbl);
-
-			// Erzeugen des Textfields
 			TextField txtField = new TextField();
-			pane.setCenter(txtField);
-
-			// Erzeugen des OK Buttons
 			Button btn = new Button("OK");
-			pane.setBottom(btn);
+
+			// Position der Elemente definieren
+			root.setTop(lbl);
+			root.setCenter(txtField);
+			root.setBottom(btn);
 
 			// An Primary Stage übergeben
 			primaryStage.setScene(scene);
