@@ -17,8 +17,12 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-
+			
+			// Erstellung des Fenstertitels
+	        primaryStage.setTitle("My JavaFX Application");
+			
 			// Erstellung vom node root
+	        //BorderPane container = new BorderPane();
 			// VBox container = new VBox();
 			// HBox container = new HBox();
 			// FlowPane container = new FlowPane();
@@ -56,6 +60,7 @@ public class Main extends Application {
 			
 			// Anzeige instanzieren und primaryStage Methoden 
 			Scene scene = new Scene(container, 200, 200);
+	        primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {
