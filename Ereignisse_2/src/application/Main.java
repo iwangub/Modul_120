@@ -2,11 +2,13 @@ package application;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
@@ -24,13 +26,15 @@ public class Main extends Application {
 
 			// Output Label erstellen
 			output = new Label("0");
+			output.setFont(new Font(20));
 			root.setCenter(output);
 
 			//// HBox und Buttons innerhalb der Box erstellen -- START -- ////
 			HBox hBox = new HBox();
+			hBox.setPadding(new Insets(0,0,10,0));
 
 			// Button Inktementieren erstellen
-			Button btnInk = new Button("Inkrementieren");
+			Button btnInk = new Button("Inkremen_tieren");
 			btnInk.setPrefWidth(120); // Set preferred width to fill available space
 			btnInk.setDefaultButton(true); // Dieser Button auf default
 
@@ -45,7 +49,7 @@ public class Main extends Application {
 			Button btnReset = new Button("_Reset"); // Unterstreichen Sie den Buchstaben "R"
 			btnReset.setPrefWidth(120); // Set preferred width to fill available space
 			btnReset.setOnAction(event -> buttonResetPressed(event));
-			btnReset.setMnemonicParsing(true); // Aktivieren Sie die Verarbeitung des Tastenkürzels
+			//btnReset.setMnemonicParsing(true); // Aktivieren Sie die Verarbeitung des Tastenkürzels
 
 			// Button Dekrementieren erstellen
 			Button btnDek = new Button("Dekrementieren");

@@ -1,32 +1,57 @@
 package application.model;
 
+import java.time.*;
+import javafx.beans.property.*;
+
 public class KundeModel {
-	// Privates Attribut
-	private String name;
-	private String nachname;
 
-	// Getter
-	public String getName() {
-		return this.name;
+	private SimpleStringProperty vorname = new SimpleStringProperty();
+	private SimpleStringProperty nachname = new SimpleStringProperty();
+	private SimpleStringProperty strasse = new SimpleStringProperty();
+	private SimpleIntegerProperty plz = new SimpleIntegerProperty();
+	private SimpleStringProperty ort = new SimpleStringProperty();
+	private SimpleStringProperty email = new SimpleStringProperty();
+	private SimpleObjectProperty<LocalDate> kundeSeit = new SimpleObjectProperty<LocalDate>();
+	private SimpleBooleanProperty hasNewsletter = new SimpleBooleanProperty();
+
+	public SimpleStringProperty vornameProperty() {
+		return vorname;
 	}
 
-	// Setter
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getNachname() {
+	public SimpleStringProperty nachnameProperty() {
 		return nachname;
 	}
 
-	public void setNachname(String nachname) {
-		this.nachname = nachname;
+	public SimpleStringProperty strasseProperty() {
+		return strasse;
 	}
 
-	public KundeModel(String name, String nachname) {
-		super();
-		this.name = name;
-		this.nachname = nachname;
+	public SimpleIntegerProperty plzProperty() {
+		return plz;
+	}
+
+	public SimpleStringProperty ortProperty() {
+		return ort;
+	}
+
+	public SimpleStringProperty emailProperty() {
+		return email;
+	}
+
+	public SimpleObjectProperty<LocalDate> kundeSeitProperty() {
+		return kundeSeit;
+	}
+
+	public SimpleBooleanProperty hasNewsletterProperty() {
+		return hasNewsletter;
+	}
+
+	public KundeModel() {
+	}
+
+	public KundeModel(String vorname, String nachname) {
+		this.vorname.setValue(vorname);
+		this.nachname.setValue(nachname);
 	}
 
 }

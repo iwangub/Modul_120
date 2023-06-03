@@ -5,16 +5,16 @@ import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
-public class Main extends Application {
+public class Teacher extends Application {
 	// Macht die PrimaryStage allen Methoden dieser Klasse verfügbar
-	// Siehe buttonPressed Eventhandler
+	// Siehe u.a. buttonPressed Eventhandler
 	private Stage primaryStage;
 
 	@Override
@@ -23,62 +23,55 @@ public class Main extends Application {
 			this.primaryStage = primaryStage;
 
 			// Layoutcontainer erstellen
-			BorderPane root = new BorderPane();
 			HBox container = new HBox();
-			Scene scene = new Scene(root, 300, 200);
 
 			// Button erstellen
-			Button btn = new Button("Klick mich!");
-
+			Button btnTest = new Button("Klick mich!");
 			// Ereignisbehandlungsroutine für Button Klick registrieren
-			btn.setOnAction(event -> buttonPressed(event));
-
+			btnTest.setOnAction((event) -> buttonPressed(event)); // Diese Methode ist weiter unten.
 			// Button dem Container hinzufügen
-			container.getChildren().add(btn);
-			root.setCenter(container);
+			container.getChildren().add(btnTest);
 
 			// Textfeld erstellen
-			TextField textField = new TextField();
-
+			TextField txt = new TextField();
 			// Ereignisbehandlungsroutine für Tastendruck registrieren
-			textField.setOnKeyPressed(event -> keyPressed(event));
-
-			// Handling key pressed event
-			Label lbl = new Label();
-			container.getChildren().add(lbl);
-
+			txt.setOnKeyPressed((event) -> keyPressed(event)); // This event occurs when a key has been pressed.
+			// txt.setOnKeyTyped((event) -> keyTyped(event)); // This event occurs when a
+			// character-generating key was typed (pressed and released).
 			// Textfeld dem Container hinzufügen
-			container.getChildren().add(textField);
+			container.getChildren().add(txt);
 
+			Scene scene = new Scene(container, 300, 200);
 			// Ereignisbehandlungsroutine für Mausklick registrieren
 			scene.setOnMouseClicked(event -> mouseClicked(event));
-
-			// Primary Stage anzeigen
 			primaryStage.setScene(scene);
 			primaryStage.show();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	// Action Event for buttonPressen
 	private void buttonPressed(ActionEvent event) {
-		System.out.println("Button Clicked, Application will be closed now!");
-		this.primaryStage.close();
+		System.out.println("Klick!");
+		primaryStage.close(); // Platform.exit();
+		// https://docs.oracle.com/javase/8/javafx/api/javafx/application/Platform.html#exit--
 	}
 
-	// Action Event for mouseClicked
 	private void mouseClicked(MouseEvent event) {
-		double x = event.getX(); // X-Koordinate des Mausklicks
-		double y = event.getY(); // Y-Koordinate des Mausklicks
-		String message = "Maus wurde geklickt an X: " + x + ", Y: " + y;
-		System.out.println(message);
+		// Mauskoordinaten via event Objekt ausgeben.
+		// System.out.println(String.format("Maus wurde geklickt an X:%s, Y:%s",
+		// event.getX(), event.getY()));
+		System.out.println("Maus wurde geklickt: " + event.getX() + "  " + event.getY());
 	}
 
-	// Action Event for keyPressed
 	private void keyPressed(KeyEvent event) {
 		System.out.println(event.getText());
+		// System.out.println(event.getCode()); // nur zur Demo
+	}
+
+	// Siehe auch Zeile 39
+	private void keyTyped(KeyEvent event) {
+		System.out.println(event.getCharacter());
 	}
 
 	public static void main(String[] args) {

@@ -14,21 +14,21 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar prefHeight="25.0" prefWidth="656.0" BorderPane.alignment="TOP_LEFT">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Datei">
             <items>
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Bearbeiten">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Hilfe">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
@@ -36,38 +36,24 @@
         </menus>
       </MenuBar>
    </top>
-   <bottom>
-      <AnchorPane prefHeight="48.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <ButtonBar buttonMinWidth="104.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
-              <buttons>
-                <Button mnemonicParsing="false" text="Neu..." />
-                  <Button mnemonicParsing="false" onAction="#showEditView" text="Bearbeiten..." />
-                  <Button mnemonicParsing="false" text="Löschen" />
-              </buttons>
-            </ButtonBar>
-         </children>
-      </AnchorPane>
-   </bottom>
    <left>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
-            <TableView layoutX="8.0" layoutY="-12.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TableView prefHeight="300.0" prefWidth="210.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Vorname" />
-                <TableColumn prefWidth="75.0" text="Nachname" />
+                <TableColumn prefWidth="104.0" text="Vorname" />
+                <TableColumn prefWidth="104.0" text="Nachname" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-         </children>
-      </AnchorPane>
+         </children></AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane BorderPane.alignment="CENTER">
          <children>
-            <GridPane AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+            <GridPane layoutX="14.0" layoutY="14.0" prefHeight="300.0" prefWidth="370.0" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -84,24 +70,37 @@
               </rowConstraints>
                <children>
                   <Label text="Vorname" />
-                  <Label fx:id="vorname" text="Fredrick" GridPane.columnIndex="1" />
                   <Label text="Nachname" GridPane.rowIndex="1" />
-                  <Label text="Fredickson" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Strasse" GridPane.rowIndex="2" />
+                  <Label text="Fredrick" GridPane.columnIndex="1" />
+                  <Label text="Fredrickson" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Musterstrasse 48" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label text="PLZ / Ort" GridPane.rowIndex="3" />
-                  <Label text="3000 Bern" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label text="Email" GridPane.rowIndex="4" />
-                  <Label text="f.fredrickson@javaisland.org" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Label text="Kunde seit" GridPane.rowIndex="5" />
-                  <Label text="30.07.1997" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                   <Label text="Status" GridPane.rowIndex="6" />
-                  <Label text="Standard" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                   <Label text="Newsletter abonniert" GridPane.rowIndex="7" />
+                  <Label text="3000 Bern" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="f.fredrickson@java.org" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label text="30.07.1998" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label text="Standart" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                   <Label text="Ja" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                </children>
             </GridPane>
          </children>
       </AnchorPane>
    </center>
+   <bottom>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <ButtonBar buttonMinWidth="100.0" layoutX="339.0" layoutY="12.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+              <buttons>
+                <Button mnemonicParsing="false" text="Neu..." />
+                  <Button mnemonicParsing="false" text="Bearbeiten..." />
+                  <Button mnemonicParsing="false" text="Löschen" />
+              </buttons>
+            </ButtonBar>
+         </children>
+      </AnchorPane>
+   </bottom>
 </BorderPane>
